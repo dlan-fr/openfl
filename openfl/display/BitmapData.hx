@@ -1187,7 +1187,10 @@ class BitmapData implements IBitmapDrawable {
 				
 			} else {
 				
-				#if ((desktop || ios || tvos) && !rpi)
+				#if emscripten
+				internalFormat = gl.RGBA;
+				format = gl.RGBA;
+				#elseif ((desktop || ios || tvos) && !rpi)
 				internalFormat = gl.RGBA;
 				format = gl.BGRA_EXT;
 				#elseif sys
