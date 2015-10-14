@@ -187,6 +187,10 @@ class Stage extends DisplayObjectContainer {
 		
 	}
 	
+	public function setMinimumSize(width:Int, height:Int):Void {
+		lime_stage_set_minimumsize(__handle, width, height);
+	}
+	
 	
 	public function setResolution (width:Int, height:Int):Void {
 		lime_stage_set_resolution(__handle, width, height);
@@ -1495,6 +1499,7 @@ class Stage extends DisplayObjectContainer {
 	private static var lime_stage_set_fixed_orientation = Lib.load ("lime-legacy", "lime_legacy_stage_set_fixed_orientation", 1);
 	private static var lime_stage_get_orientation = Lib.load ("lime-legacy", "lime_legacy_stage_get_orientation", 0);
 	private static var lime_stage_get_normal_orientation = Lib.load ("lime-legacy", "lime_legacy_stage_get_normal_orientation", 0);
+	private static var lime_stage_set_minimumsize = Lib.load("lime-legacy", "lime_legacy_stage_set_minimumsize", 3);
 	
 	#if (android && lime_legacy)
 	private static var lime_get_softkeyboardheight = JNI.createStaticMethod ("org.haxe.lime.GameActivity", "getSoftKeyboardHeight", "()F");
